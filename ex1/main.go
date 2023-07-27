@@ -31,9 +31,10 @@ func main() {
 
 	countryCode := ""
 	surname := ""
-	if len(args) > 3 {
-		countryCode = args[3]
-		surname = args[2]
+	if len(args) == 5 {
+		surname, countryCode = strings.Join(args[len(args)-3:len(args)-1], " "), args[len(args)-1]
+	} else if len(args) == 4 {
+		surname, countryCode = args[len(args)-2], args[len(args)-1]
 	} else {
 		countryCode = args[2]
 	}
